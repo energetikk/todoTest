@@ -3,7 +3,7 @@
 
 import { TodoList } from "@/components/TodoList";
 import { FormInput } from "@/components/FormInput";
-import { Footer } from "@/components/footer";
+// import { Footer } from "@/components/footer";
 import { useState } from 'react';
 
 export default function Home() {
@@ -27,8 +27,8 @@ export default function Home() {
   }
 
   const taskDone = (id) => {
-    let copy = [...task]
-    let currentTask = copy.find((todo) => todo.id === id);
+    const copy = [...task]
+    const currentTask = copy.find((todo) => todo.id === id);
     currentTask.isCompleted = !currentTask.isCompleted
     setTask(copy)
   }

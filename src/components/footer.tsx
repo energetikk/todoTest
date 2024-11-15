@@ -1,6 +1,6 @@
 
 
-export const Footer = ({task}) => {
+export const Footer = () => {
     return (
         <footer>
           <nav>
