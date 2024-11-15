@@ -2,7 +2,7 @@
 
 
 import { TodoList } from "@/components/TodoList";
-import { FormItem } from "@/components/FormItem";
+import { FormInput } from "@/components/FormInput";
 import { Footer } from "@/components/footer";
 import { useState } from 'react';
 
@@ -10,29 +10,36 @@ export default function Home() {
 
 
   const [task, setTask] = useState([])
-
-
+  
   const deleteTask = (id) => {
     setTask([...task.filter((todo) => todo.id !== id)])
   }
 
   function addTask(imputTask) {
     if (imputTask) {
-    const newTask = {
-      id: Date.now(),
-      title: imputTask
+      const newTask = {
+        id: Date.now(),
+        title: imputTask,
+        isCompleted: false
+      }
+      setTask([newTask, ...task])
     }
-  setTask([...task, newTask])
-   
-  }
   }
 
+  const taskDone = (id) => {
+    let copy = [...task]
+    let currentTask = copy.find((todo) => todo.id === id);
+    currentTask.isCompleted = !currentTask.isCompleted
+    setTask(copy)
+  }
+
+  console.log(task)
+
   return (
-    <div>
-      <FormItem addTask={addTask}/>
-      {/* <TodoList task={task}/> */}
-      <TodoList task={task} deleteTask={deleteTask}/>
-      <Footer />
+    <div className="flex flex-col">
+      <FormInput addTask={addTask} />
+      <TodoList task={task} deleteTask={deleteTask} taskDone={taskDone}/>
+      {/* <Footer task={task}/> */}
     </div>
   );
 

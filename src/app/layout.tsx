@@ -30,9 +30,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col bg-zinc-900 w-full items-center p-8 pb-20 gap-16 sm:p-20`}
       >
-        <h1 className='flex justify-center text-2xl font-bold mb-5'>Todos list</h1>
+        <h1 className='text-white text-2xl font-bold'>Список задач:</h1>
         {children}
       </body>
     </html>
