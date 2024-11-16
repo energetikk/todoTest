@@ -1,6 +1,11 @@
 import { FaCheck } from "react-icons/fa";
 
-export function CheckButton({taskDoneComplete, isCompleted}) {
+interface ICheckButton {
+    taskDoneComplete: React.MouseEventHandler,
+    isCompleted: boolean
+}
+
+export function CheckButton({taskDoneComplete, isCompleted}: ICheckButton) {
 
 
     return (

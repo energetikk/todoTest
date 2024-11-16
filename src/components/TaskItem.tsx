@@ -1,10 +1,14 @@
 import { BsTrash } from "react-icons/bs";
-import { CheckButton } from '@/components/CheckButton'
-export function TaskItem({ title, deleteTaskBtn, taskDoneComplete, isCompleted }) {
+import { CheckButton } from '@/components/CheckButton';
 
+interface TaskItemProps {
+  title: string;
+  deleteTaskBtn: () => void;
+  taskDoneComplete: () => void;
+  isCompleted: boolean;
+}
 
-
-
+export function TaskItem({ title, deleteTaskBtn, taskDoneComplete, isCompleted }: TaskItemProps ) {
 
   return (
 
